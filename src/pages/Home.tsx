@@ -18,11 +18,6 @@ const Home: React.FC = () => {
           Launch!
         </button>
       </div>
-      <div className="cardMain">
-        <button onClick={() => {navigate("/Results")}}>
-          Test!
-        </button>
-      </div>
     </>
   );
 };

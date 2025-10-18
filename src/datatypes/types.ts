@@ -10,7 +10,6 @@ export interface AnswerSet{
     "q9": string,
     "q10": string,
     "q11": string[],
-    "q12": string,
 }
 
 export interface Major{

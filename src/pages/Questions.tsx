@@ -1,6 +1,7 @@
 import launchPadLogo from '../assets/launchPad Logo.png'
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { AnswerSet } from '../datatypes/types';
 
 import './Questions.css'
 
@@ -123,6 +124,24 @@ const SurveyPage: React.FC = () => {
     </div>
   );
 
+  const handleSubmit = () => {
+    const answers: AnswerSet = {
+        q1: q1,
+        q2: q2,
+        q3: q3,
+        q4: q4,
+        q5: q5,
+        q6: q6,
+        q7: q7,
+        q8: q8,
+        q9: q9,
+        q10: q10,
+        q11: q11,
+    }
+
+    navigate("/Results", { state: answers});
+  }
+
   return (
     <div style={{ textAlign: "center", margin: "2rem" }}>
       <div>
@@ -180,7 +199,7 @@ const SurveyPage: React.FC = () => {
         Selected: {q1.join(", ") || "None"}
       </p>
 
-      <button className="button" >
+      <button className="button" onClick={() => {handleSubmit()}}>
         Submit
       </button>
     </div>
