@@ -47,7 +47,7 @@ const SurveyPage: React.FC = () => {
   const q8_Options = ["Love it", "Comfortable", "Neutral", "Avoid it"];
   const q9_Options = ["Independently", "In small teams", "In large organizations", "Teaching or mentoring others"];
   const q10_Options = ["Yes", "Somewhat", "Not important"];
-  const q11_Options = ["Labs", "Writing", "Group projects", "Coding", "Public speaking", "Math", "None"];
+  const q11_Options = ["Labs", "Writing", "Group projects", "Coding", "Public speaking", "Math"];
 
   // Render multi-choice two-column checkboxes (button to the left)
   const renderTwoColumnOptions = (
