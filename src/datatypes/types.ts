@@ -18,3 +18,17 @@ export interface MajorList{
         probabilty: number,
     }[]
 }
+
+
+export interface TopPositions{
+  bachelors: string[];
+  masters: string[];
+};
+
+export interface MajorInfo{
+  major: string;
+  top_positions: TopPositions;
+  college_overview: string;
+  day_in_life: string;
+  byu_courses: string[];
+};
