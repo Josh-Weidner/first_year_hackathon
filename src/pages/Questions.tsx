@@ -196,7 +196,7 @@ const SurveyPage: React.FC = () => {
       <h2>What kind of coursework do you tend to avoid? (Select up to 3)</h2>
       {renderTwoColumnOptions(q11_Options, q11, handleAvoidChange, 3)}
       <p style={{ marginTop: "0.5rem", color: "#666" }}>
-        Selected: {q1.join(", ") || "None"}
+        Selected: {q11.join(", ") || "None"}
       </p>
 
       <button className="button" onClick={() => {handleSubmit()}}>
