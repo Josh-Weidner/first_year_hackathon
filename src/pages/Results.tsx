@@ -65,12 +65,12 @@ const Results: React.FC = () => {
 
     useEffect(()=>{
         const fetchData = async () => {
-            const responce = await fetch('http://127.0.0.1:8000/recomend', {
+            const responce = await fetch('http://127.0.0.1:8000/recommend', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(answers)
+                body: JSON.stringify({responses:answers})
             })
             if(!responce.ok){
                 throw new Error("http error!");

@@ -3,8 +3,17 @@ from Encoder import SurveyEncoder
 import joblib
 import pandas as pd
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 enc = joblib.load("encoder.pkl")
 model = joblib.load("model.pkl")
