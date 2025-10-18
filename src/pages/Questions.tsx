@@ -47,7 +47,7 @@ const SurveyPage: React.FC = () => {
   const q8_Options = ["Love it", "Comfortable", "Neutral", "Avoid it"];
   const q9_Options = ["Independently", "In small teams", "In large organizations", "Teaching or mentoring others"];
   const q10_Options = ["Yes", "Somewhat", "Not important"];
-  const q11_Options = ["Labs", "Writing", "Group projects", "Coding", "Public speaking", "Math", "None"];
+  const q11_Options = ["Labs", "Writing", "Group projects", "Coding", "Public speaking", "Math"];
 
   // Render multi-choice two-column checkboxes (button to the left)
   const renderTwoColumnOptions = (
@@ -196,7 +196,7 @@ const SurveyPage: React.FC = () => {
       <h2>What kind of coursework do you tend to avoid? (Select up to 3)</h2>
       {renderTwoColumnOptions(q11_Options, q11, handleAvoidChange, 3)}
       <p style={{ marginTop: "0.5rem", color: "#666" }}>
-        Selected: {q1.join(", ") || "None"}
+        Selected: {q11.join(", ") || "None"}
       </p>
 
       <button className="button" onClick={() => {handleSubmit()}}>
