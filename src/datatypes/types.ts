@@ -12,8 +12,9 @@ export interface AnswerSet{
     "q11": string[],
 }
 
-export interface Major{
-    title: String,
-    descriptioin: string,
+export interface MajorList{
+    recomendations: {
+        major: string,
+        probabilty: number,
+    }[]
 }
-
