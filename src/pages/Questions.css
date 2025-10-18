@@ -1,0 +1,129 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; /* optional — only affects text alignment */
+  
+  /* new lines */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns content to the top */
+  align-items: center; /* keeps it horizontally centered */
+  min-height: 100vh; /* ensures full height */
+}
+
+.logo {
+  height: 5em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center them horizontally */
+  justify-content: flex-start; /* keep them toward the top */
+  gap: 1.2em;               /* space between items */
+  width: 100%;
+  max-width: 600px;         /* optional: keeps content nicely contained */
+  text-align: center;       /* center text inside */
+  padding-top: 10em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.majors {
+    height: 20em;
+}
+
+.findMajor {
+    margin: 2em;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;     /* lay out options horizontally */
+  justify-content: center; /* center the group */
+  gap: 2em;                /* space between options */
+  margin-top: 1.5em;
+}
+
+.radio-option {
+  display: flex;
+  flex-direction: column;  /* stack radio and text vertically */
+  align-items: center;     /* center both horizontally */
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #aaa;
+  border-radius: 50%;
+  margin-bottom: 0.5em;   /* space between circle and text */
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: rgba(243, 113, 37);
+}
+
+.radio-option input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(243, 113, 37);
+}
+
+.radio-option:hover input[type="radio"] {
+  border-color: rgba(243, 113, 37);
+}
+
+.radio-label {
+  text-align: center;
+  max-width: 100px; /* prevents long labels from wrapping too wide */
+}
+
+.question {
+    margin-bottom: 1.5rem;
+}
+.button {
+    margin-top: 3rem;
+}
+button.selected {
+    background-color: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+button:hover {
+    background-color: #ffe3e3;
+}
+
+h2 {
+    padding-top: 3em;
+}
