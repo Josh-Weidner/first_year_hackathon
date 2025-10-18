@@ -14,14 +14,14 @@ const Features: React.FC = () => {
           <img src={launchPadLogo} className="logo" />
         </a>
       </div>
-      <div className="card">
+      <div className="cardFeatures">
         <a>
             <img src={majors} className='majors' />
         </a>
         <div>
             <h2>Discover Your Major</h2>
             <p>Not sure what to study? Take our quick survey and discover which majors align best with your interests, strengths, and goals. Our intelligent recommender analyzes your responses to help you make a confident, informed decision about your academic path.</p>
-        <button onClick={() => {navigate("/Feature")}} className='findMajor'>
+        <button onClick={() => {navigate("/Questions")}} className='findMajor'>
           Find My Major!
         </button>
         </div>
