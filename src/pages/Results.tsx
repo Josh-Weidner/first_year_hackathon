@@ -7,6 +7,21 @@ import { useNavigate } from "react-router-dom"
 
 import './Results.css';
 
+const prompt1 = `I want to learn more about these three majors in the order I give them.`
+
+const prompt2 =`Give me only the following information as I specify the format. BE STRICT.
+
+Give me the top 3 positions in the field of study after graduation with a bachelors and 3 with a masters as a list (e.g. Software Engineer, AI Engineer, Cyber Security)
+
+What does college look like, I want only one sentence that includes the average length in years of the major for a bachelors and a masters, the difficulty compared to other majors with a score 0-10. 0 being the easiest, ten being the most difficult.
+
+Give a single paragraph with no more than 3 sentences of the day in life of graduate in the field. What is the average pay range, what is the usual schedule, how is the work-life balance like. 
+
+Finally, give me a list of 3 classes at Brigham Young University that would help me learn about the major, they must be introductory classes, they ussualy start with 1.
+
+return the information as JSON objects with the follow fields: major: , top_positions: {bachelors: [], masters: []}, college_overview: , day_in_life: , byu_courses: []. 
+`
+
 const Results: React.FC = () => {
     const navigate = useNavigate()
     const {state} = useLocation();
