@@ -1,16 +1,16 @@
-import {AnswerSet, Major} from "../datatypes/types"
+import {AnswerSet, MajorList} from "../datatypes/types"
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import './Results.css';
 
 const Results: React.FC = () => {
     const {state} = useLocation();
-    const [majors, setMajors] = useState<Major[]>([]);
+    const [majors, setMajors] = useState<MajorList>();
     const answers: AnswerSet = state;
 
     useEffect(()=>{
         const fetchData = async () => {
-            const responce = await fetch('/get_major', {
+            const responce = await fetch('/recomend', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,10 +29,10 @@ const Results: React.FC = () => {
     <div>
         {answers.q1}
     </div>
-    {majors.forEach((m)=>{
+    {majors?.recomendations.forEach((m)=>{
         <div>
-        <span className='title'>{m.title}: </span>
-        <span className='desc'>{m.descriptioin}</span>
+        <span className='title'>{m.major}: </span>
+        <span className='prob'>{m.probabilty}</span>
         </div>
     })}
     </>);
