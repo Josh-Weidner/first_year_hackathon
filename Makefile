@@ -6,7 +6,7 @@ dev:
 	npm install
 	npm run dev
 
-install:
+install-db:
 	npm install express mssql dotenv
 	npm install --save-dev typescript @types/node @types/express
 	npm install --save-dev @types/mssql
