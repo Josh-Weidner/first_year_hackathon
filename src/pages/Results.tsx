@@ -26,6 +26,9 @@ const Results: React.FC = () => {
     })
     
     return(<>
+    <div>
+        {answers.q1}
+    </div>
     {majors.forEach((m)=>{
         <div>
         <span className='title'>{m.title}: </span>
