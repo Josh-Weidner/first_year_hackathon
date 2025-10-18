@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := dev
 
 .PHONY: dev
-
 dev:
 	npm install
 	npm run dev
@@ -12,5 +11,6 @@ install-db:
 	npm install --save-dev @types/mssql
 	npm install --save-dev ts-node typescript
 
-test-db:
+.PHONY: db
+db: install-db
 	npx ts-node src/test-db.ts
