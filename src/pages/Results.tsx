@@ -1,54 +1,67 @@
-import {AnswerSet, MajorList} from "../datatypes/types"
+import launchPadLogo from '../assets/launchPad Logo.png'
+import {AnswerSet, MajorList, MajorInfo} from "../datatypes/types"
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import Majors from "./Majors"
+import { useNavigate } from "react-router-dom"
+
 import './Results.css';
 
-const major_descriptions: Record<string, string> = {
-  "Accounting": "Focuses on recording, analyzing, and reporting financial transactions for businesses and organizations.",
-  "Finance": "Studies managing money, investments, banking, and financial planning for individuals and organizations.",
-  "Marketing": "Covers strategies for promoting, selling, and distributing products and services to target audiences.",
-  "Management": "Prepares students to lead teams, organize resources, and oversee business operations effectively.",
-  "International Business": "Explores global trade, cross-cultural management, and multinational business strategies.",
-  "Business Analytics": "Applies data analysis and statistical methods to help organizations make informed business decisions.",
-  "Entrepreneurship": "Focuses on starting and managing new businesses, innovation, and opportunity recognition.",
-  "Mechanical Engineering": "Designs, analyzes, and builds mechanical systems, machines, and devices.",
-  "Civil Engineering": "Plans, designs, and maintains infrastructure like roads, bridges, and buildings.",
-  "Electrical Engineering": "Works with electrical systems, circuits, and electronic devices for a variety of applications.",
-  "Chemical Engineering": "Applies chemistry, physics, and biology to develop processes for manufacturing chemicals and materials.",
-  "Biomedical Engineering": "Combines engineering and biology to design medical devices, prosthetics, and healthcare technologies.",
-  "Aerospace Engineering": "Focuses on designing, testing, and manufacturing aircraft and spacecraft.",
-  "Industrial Engineering": "Optimizes complex systems, processes, and operations for efficiency and safety.",
-  "Computer Science": "Covers programming, algorithms, software development, and computational problem-solving.",
-  "Information Systems": "Studies how to design, implement, and manage information systems in organizations.",
-  "Software Engineering": "Focuses on designing, developing, and maintaining software applications.",
-  "Cybersecurity": "Protects computer systems and networks from digital attacks and unauthorized access.",
-  "Data Science": "Analyzes large datasets to uncover patterns, insights, and support decision-making.",
-  "Biology": "Studies living organisms, their structures, functions, and interactions with the environment.",
-  "Biochemistry": "Explores chemical processes and substances that occur within living organisms.",
-  "Microbiology": "Focuses on microorganisms, including bacteria, viruses, and fungi, and their effects on health and the environment.",
-  "Molecular Biology": "Examines biological activity at the molecular level, including DNA, RNA, and proteins.",
-  "Genetics": "Studies heredity, gene function, and genetic variation in living organisms.",
-  "Neuroscience": "Investigates the nervous system, brain function, and behavior.",
-  "Political Science": "Analyzes political systems, government structures, policies, and public affairs.",
-  "Sociology": "Studies society, social behavior, and the relationships among individuals and groups.",
-  "Economics": "Examines the production, distribution, and consumption of goods and services.",
-  "Anthropology": "Explores human cultures, evolution, and social development across time.",
-  "International Relations": "Studies global politics, diplomacy, and relations between nations.",
-  "Geography": "Examines physical landscapes, human-environment interactions, and spatial patterns.",
-  "Psychology": "Investigates human thought, behavior, and mental processes.",
-  "Nursing": "Prepares students to provide patient care, promote health, and support medical treatment.",
-  "Public Health": "Focuses on improving community health, disease prevention, and health policy.",
-  "Physical Therapy": "Trains students to help patients recover mobility and function after injury or illness.",
-  "Elementary Education": "Prepares teachers to educate young children in primary school settings.",
-  "Secondary Education": "Trains teachers to educate adolescents in middle and high schools.",
-  "Special Education": "Focuses on teaching students with diverse learning needs and disabilities.",
-  "Early Childhood Education": "Prepares educators to support learning and development in children from birth to age eight."
-}
-
 const Results: React.FC = () => {
+    const navigate = useNavigate()
     const {state} = useLocation();
     const [majors, setMajors] = useState<MajorList>();
     const answers: AnswerSet = state;
+    const [majorInfo, setMajorInfo] = useState<MajorInfo[]>([
+  {
+    major: "Computer Science",
+    top_positions: {
+      bachelors: ["Software Engineer", "Web Developer", "Systems Analyst"],
+      masters: ["AI Engineer", "Data Scientist", "Cybersecurity Specialist"],
+    },
+    college_overview:
+      "A bachelor's typically takes 4 years and a master's 2 years, with a difficulty of 8/10 compared to other majors.",
+    day_in_life:
+      "Graduates often work on technical projects, collaborate with teams, and solve challenging problems. The average salary ranges from $80,000–$130,000, usually in full-time roles with moderate flexibility. Work-life balance varies but is generally manageable with proper time management.",
+    byu_courses: [
+      "CS 142: Introduction to Computer Programming",
+      "CS 235: Data Structures",
+      "CS 324: Systems Programming",
+    ],
+  },
+  {
+    major: "Mechanical Engineering",
+    top_positions: {
+      bachelors: ["Design Engineer", "Manufacturing Engineer", "Project Engineer"],
+      masters: ["Aerospace Engineer", "Robotics Engineer", "Thermal Systems Specialist"],
+    },
+    college_overview:
+      "A bachelor's takes around 4 years and a master's about 2, with a difficulty rating of 9/10 due to heavy math and physics requirements.",
+    day_in_life:
+      "Mechanical engineers design and test physical systems or components, often collaborating in industrial or research environments. They work roughly 40–50 hours weekly with some project deadlines causing overtime. Average pay ranges from $75,000–$120,000, with a decent work-life balance depending on the field.",
+    byu_courses: [
+      "ME EN 250: Modeling of Engineering Systems",
+      "ME EN 330: Fluid Mechanics",
+      "ME EN 335: Heat Transfer",
+    ],
+  },
+  {
+    major: "Psychology",
+    top_positions: {
+      bachelors: ["Human Resources Specialist", "Research Assistant", "Behavioral Technician"],
+      masters: ["Clinical Psychologist", "Industrial-Organizational Psychologist", "Counselor"],
+    },
+    college_overview:
+      "A bachelor's takes about 4 years and a master's 2–3 years, with a difficulty rating of 6/10 due to conceptual but less technical coursework.",
+    day_in_life:
+      "Psychology graduates may spend their days conducting assessments, meeting clients, or analyzing behavioral data. They usually work 35–45 hours weekly, often in offices or clinics. Average salaries range from $50,000–$100,000, with a generally healthy work-life balance.",
+    byu_courses: [
+      "PSYCH 111: Introduction to Psychological Science",
+      "PSYCH 210: Statistics in Psychological Research",
+      "PSYCH 381: Behavioral Neuroscience",
+    ],
+  },
+]);
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -69,15 +82,11 @@ const Results: React.FC = () => {
     
     return(<>
     <div>
-        {answers.q1}
-    </div>
-    {majors?.recomendations.forEach((m)=>{
-        <div>
-        <span className='title'>{m.major}: </span>
-        <span>{major_descriptions[m.major]}</span>
-        <span className='prob'>{m.probabilty}</span>
-        </div>
-    })}
+        <a>
+          <img src={launchPadLogo} className="logo" onClick={() => {navigate("/Features")}} />
+        </a>
+      </div>
+    <Majors data={majorInfo} />
     </>);
 }
 
